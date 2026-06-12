@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raumdekoration Monika Otterbein</title>
+  <meta name="description" content="Raumdekoration & Interior Design von Monika Otterbein aus dem Raum Heidelberg." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream:   #F7F4EF;
+      --warm:    #EDE8DF;
+      --sand:    #C9B99A;
+      --mocha:   #7A6452;
+      --dark:    #2C2318;
+      --white:   #FFFFFF;
+      --accent:  #B8975A;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Jost', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--dark);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── Placeholder images ── */
+    .img-placeholder {
+      background: var(--warm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sand);
+      font-family: var(--font-body);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--sand);
+      width: 100%;
+    }
+    .img-placeholder span { opacity: 0.6; }
+
+    /* ── Navigation ── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: var(--cream);
+      border-bottom: 1px solid var(--warm);
+      transition: box-shadow 0.3s;
+    }
+    .nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
+    .nav-logo { height: 52px; width: auto; }
+    .nav-logo .img-placeholder { width: 160px; height: 52px; font-size: 10px; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dark);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a.active { color: var(--accent); }
+    .nav-cta {
+      background: var(--dark);
+      color: var(--white) !important;
+      padding: 10px 22px;
+      font-size: 11px !important;
+      letter-spacing: 0.14em !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--mocha) !important; }
+    .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-burger span { display: block; width: 24px; height: 2px; background: var(--dark); transition: 0.3s; }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--cream);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--dark);
+    }
+    .mobile-menu a.cta-mobile {
+      background: var(--dark);
+      color: var(--white);
+      padding: 14px 36px;
+      margin-top: 8px;
+    }
+    .mobile-close {
+      position: absolute;
+      top: 24px; right: 32px;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--dark);
+      line-height: 1;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      margin-top: 88px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 88px);
+    }
+    .hero-image-left {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-image-left .img-placeholder { height: 100%; min-height: 500px; }
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 64px;
+      background: var(--white);
+      position: relative;
+    }
+    .hero-bg-image {
+      position: absolute;
+      inset: 0;
+      opacity: 0.08;
+      z-index: 0;
+    }
+    .hero-bg-image .img-placeholder { height: 100%; }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 4vw, 58px);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 24px;
+    }
+    .hero-subtext {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--mocha);
+      margin-bottom: 10px;
+      line-height: 1.8;
+    }
+    .hero-subtext strong { font-weight: 500; color: var(--dark); }
+    .btn {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-dark {
+      background: var(--dark);
+      color: var(--white);
+      margin-top: 32px;
+    }
+    .btn-dark:hover { background: var(--mocha); }
+    .btn-outline {
+      border: 1.5px solid var(--dark);
+      color: var(--dark);
+      margin-top: 32px;
+    }
+    .btn-outline:hover { background: var(--dark); color: var(--white); }
+
+    /* ── Section shared ── */
+    section { padding: 100px 48px; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-tag {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: block;
+    }
+    h2 {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 3.2vw, 46px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--dark);
+    }
+    h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+    h4 {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 500;
+    }
+    p { font-size: 15px; font-weight: 300; color: var(--mocha); line-height: 1.85; }
+
+    /* ── Divider ── */
+    .divider { width: 48px; height: 1.5px; background: var(--accent); margin: 24px 0; }
+
+    /* ── Section: Zeit ── */
+    .section-zeit {
+      background: var(--white);
+      padding: 100px 48px;
+    }
+    .zeit-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .zeit-image .img-placeholder { height: 520px; }
+    .zeit-text { padding-right: 20px; }
+    .zeit-text h2 { margin-bottom: 24px; }
+
+    /* ── Section: Vorstellen ── */
+    .section-vorstellen {
+      background: var(--cream);
+      padding: 100px 48px;
+    }
+    .vorstellen-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .vorstellen-text h2 { margin-bottom: 12px; }
+    .vorstellen-text .sub { font-family: var(--font-display); font-size: 20px; font-style: italic; color: var(--mocha); margin: 16px 0 32px; }
+    .vorstellen-image { position: relative; }
+    .vorstellen-image .img-main .img-placeholder { height: 460px; }
+    .vorstellen-image .img-icon {
+      position: absolute;
+      bottom: -30px;
+      right: -20px;
+      width: 100px;
+      height: 100px;
+    }
+    .vorstellen-image .img-icon .img-placeholder { height: 100px; }
+    .grafik-row {
+      margin-top: 40px;
+    }
+    .grafik-row .img-placeholder { height: 80px; max-width: 300px; }
+
+    /* ── Section: Monika (About teaser) ── */
+    .section-monika {
+      background: var(--dark);
+      padding: 100px 48px;
+      color: var(--white);
+    }
+    .monika-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .monika-image .img-placeholder { height: 560px; }
+    .monika-text h2 { color: var(--white); margin-bottom: 24px; }
+    .monika-text p { color: rgba(255,255,255,0.72); }
+    .monika-text .divider { background: var(--accent); }
+    .monika-side-img { margin-top: 32px; }
+    .monika-side-img .img-placeholder { height: 240px; }
+
+    /* ── Section: Leistungen Grid ── */
+    .section-leistungen {
+      background: var(--white);
+      padding: 100px 48px;
+    }
+    .leistungen-header { max-width: 1100px; margin: 0 auto 56px; text-align: center; }
+    .leistungen-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .leistung-card { text-align: center; }
+    .leistung-card .img-placeholder { height: 280px; margin-bottom: 18px; }
+    .leistung-card h4 { font-size: 17px; }
+    .leistungen-footer { text-align: center; margin-top: 48px; }
+
+    /* ── Section: Testimonials ── */
+    .section-reviews {
+      background: var(--cream);
+      padding: 100px 48px;
+    }
+    .reviews-inner { max-width: 900px; margin: 0 auto; }
+    .reviews-inner h2 { margin-bottom: 48px; }
+    .review-block { margin-bottom: 56px; padding-bottom: 56px; border-bottom: 1px solid var(--warm); }
+    .review-block:last-of-type { border-bottom: none; }
+    .review-text {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--dark);
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+    .review-author {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .review-deco { max-width: 200px; margin: 32px 0; }
+    .review-deco .img-placeholder { height: 80px; }
+    .reviews-footer { text-align: center; margin-top: 16px; }
+
+    /* ── Section: Ablauf Teaser ── */
+    .section-ablauf-teaser {
+      background: var(--warm);
+      padding: 100px 48px;
+    }
+    .ablauf-teaser-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+    .ablauf-teaser-inner h2 { margin-bottom: 20px; }
+    .ablauf-teaser-inner p { max-width: 560px; margin: 0 auto 32px; }
+    .ablauf-deco .img-placeholder { height: 120px; max-width: 200px; margin: 32px auto 0; }
+
+    /* ── Section: CTA Banner ── */
+    .section-cta {
+      position: relative;
+      padding: 0;
+      overflow: hidden;
+    }
+    .cta-image { position: relative; min-height: 380px; }
+    .cta-image .img-placeholder { height: 380px; }
+    .cta-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(44, 35, 24, 0.68);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cta-overlay-content { text-align: center; color: var(--white); padding: 40px; }
+    .cta-overlay-content h2 { color: var(--white); margin-bottom: 28px; }
+    .btn-light {
+      border: 1.5px solid var(--white);
+      color: var(--white);
+    }
+    .btn-light:hover { background: var(--white); color: var(--dark); }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--dark);
+      color: var(--white);
+      padding: 64px 48px 40px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 48px;
+      align-items: start;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      margin-bottom: 32px;
+    }
+    .footer-logo .img-placeholder { width: 180px; height: 60px; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.4); }
+    .footer-links { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; align-items: center; }
+    .footer-links a {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      font-weight: 500;
+    }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-contact { text-align: right; }
+    .footer-contact p { color: rgba(255,255,255,0.6); font-size: 13px; margin-bottom: 4px; }
+    .footer-contact a { color: var(--accent); font-size: 13px; }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.35); margin: 0; }
+    .footer-bottom a { font-size: 12px; color: rgba(255,255,255,0.35); }
+    .footer-bottom a:hover { color: var(--accent); }
+    .footer-legal { display: flex; gap: 20px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .hero { grid-template-columns: 1fr; min-height: auto; margin-top: 72px; }
+      .hero-image-left { height: 55vw; min-height: 260px; }
+      .hero-image-left .img-placeholder { min-height: 260px; }
+      .hero-right { padding: 48px 28px; }
+      section { padding: 64px 24px; }
+      .zeit-inner, .vorstellen-inner, .monika-inner { grid-template-columns: 1fr; gap: 40px; }
+      .zeit-image { order: -1; }
+      .zeit-image .img-placeholder { height: 300px; }
+      .vorstellen-image .img-main .img-placeholder { height: 300px; }
+      .vorstellen-image .img-icon { width: 70px; height: 70px; right: -8px; }
+      .monika-image .img-placeholder { height: 320px; }
+      .leistungen-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+      .footer-top { grid-template-columns: 1fr; text-align: center; }
+      .footer-contact { text-align: center; }
+      .footer-bottom { justify-content: center; text-align: center; }
+    }
+    @media (max-width: 560px) {
+      .leistungen-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav" id="mainNav">
+    <a href="index.html" class="nav-logo">
+      <div class="img-placeholder" style="width:160px;height:52px;"><span>Logo</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="ueber-mich.html">Über mich</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="leistungen.html">Leistungen</a>
+      <a href="ablauf.html">Ablauf</a>
+      <a href="rezensionen.html">Rezensionen</a>
+      <a href="kontakt.html" class="btn nav-cta">Jetzt anfragen</a>
+    </div>
+    <div class="nav-burger" id="burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <span class="mobile-close" onclick="toggleMenu()">×</span>
+    <a href="ueber-mich.html" onclick="toggleMenu()">Über mich</a>
+    <a href="portfolio.html" onclick="toggleMenu()">Portfolio</a>
+    <a href="leistungen.html" onclick="toggleMenu()">Leistungen</a>
+    <a href="ablauf.html" onclick="toggleMenu()">Ablauf</a>
+    <a href="rezensionen.html" onclick="toggleMenu()">Rezensionen</a>
+    <a href="kontakt.html" class="cta-mobile" onclick="toggleMenu()">Jetzt anfragen</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" style="padding:0;">
+    <div class="hero-image-left">
+      <div class="img-placeholder" style="min-height:100%;height:100%;">
+        <span>Bild: Monika Otterbein – Portrait</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-bg-image">
+        <div class="img-placeholder" style="height:100%;border:none;"><span></span></div>
+      </div>
+      <div class="hero-content">
+        <span class="section-tag">Raumausstattung &amp; Interior Design</span>
+        <h1>Raumdekoration<br />&amp; Interior Design</h1>
+        <div class="divider"></div>
+        <p class="hero-subtext">
+          <strong>Dein Zuhause, dein Raum, dein Leben.</strong><br />
+          Es ist nie zu spät, deine Wohnwünsche zu erfüllen.<br />
+          Warum nicht jetzt?
+        </p>
+        <a href="kontakt.html" class="btn btn-dark">Jetzt anfragen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Zeit für Veränderung -->
+  <section class="section-zeit">
+    <div class="zeit-inner">
+      <div class="zeit-text">
+        <span class="section-tag">Interior Design</span>
+        <h2>Die Zeit für deine Veränderung ist genau jetzt.</h2>
+        <div class="divider"></div>
+        <p>Dein perfektes Zuhause ist ein Ort, an dem du dich sicher, glücklich und frei fühlst.</p>
+        <p style="margin-top:16px;">Indem wir gemeinsam deine Wohnwünsche verwirklichen, schaffst du einen Ort, der dich jeden Tag inspiriert und erfreut sowie zu deiner Persönlichkeit und Lebensstil passt.</p>
+        <a href="kontakt.html" class="btn btn-outline">Jetzt anfragen</a>
+      </div>
+      <div class="zeit-image">
+        <div class="img-placeholder" style="height:520px;"><span>Bild: Vorhang / Raumdetail</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stell dir vor -->
+  <section class="section-vorstellen">
+    <div class="vorstellen-inner">
+      <div class="vorstellen-image">
+        <div class="img-main">
+          <div class="img-placeholder" style="height:460px;"><span>Bild: Wohnzimmer</span></div>
+        </div>
+        <div class="img-icon" style="position:absolute;bottom:-30px;right:-20px;width:100px;height:100px;">
+          <div class="img-placeholder" style="height:100px;"><span>Icon</span></div>
+        </div>
+      </div>
+      <div class="vorstellen-text">
+        <span class="section-tag">Inspiration</span>
+        <h2>Stell dir vor,<br />wie es sich anfühlt …</h2>
+        <div class="divider"></div>
+        <p>Dein perfektes Zuhause ist ein Ort, an dem du dich sicher, glücklich und frei fühlst.</p>
+        <p style="margin-top:16px;">Indem wir gemeinsam deine Wohnwünsche verwirklichen, schaffst du einen Ort, der dich jeden Tag inspiriert und erfreut sowie zu deiner Persönlichkeit und Lebensstil passt.</p>
+        <p class="sub" style="font-family:var(--font-display);font-size:20px;font-style:italic;color:var(--mocha);margin-top:20px;">Genau jetzt!</p>
+        <div class="grafik-row">
+          <div class="img-placeholder" style="height:80px;max-width:300px;"><span>Grafik / Illustration</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Monika – About teaser -->
+  <section class="section-monika">
+    <div class="monika-inner">
+      <div class="monika-image">
+        <div class="img-placeholder" style="height:560px;"><span>Bild: Monika Otterbein – Kontakt</span></div>
+      </div>
+      <div class="monika-text">
+        <span class="section-tag" style="color:var(--accent);">Über mich</span>
+        <h2>Lass uns zusammen deinen Traum schönen Wohnens realisieren.</h2>
+        <div class="divider"></div>
+        <p>Ich bin Monika, deine Raumausstatterin und Interior Designerin aus dem Raum Heidelberg. Ich helfe dir dabei, deine Einrichtungsideen endlich umzusetzen. Individuelle Beratung ist dabei sehr wichtig für mich. Du stehst im Mittelpunkt meiner Arbeit. So realisiere ich für dich dein Zuhause, in dem du dich rundum wohlfühlen kannst.</p>
+        <a href="ueber-mich.html" class="btn btn-light" style="margin-top:28px;display:inline-block;">Mehr von mir</a>
+        <div class="monika-side-img" style="margin-top:32px;">
+          <div class="img-placeholder" style="height:200px;background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.15);color:rgba(255,255,255,0.3);"><span>Bild: Korblampe / Wohndetail</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leistungen Grid -->
+  <section class="section-leistungen">
+    <div class="leistungen-header">
+      <span class="section-tag">Was ich anbiete</span>
+      <h2>Ein professionelles Interior Design lohnt sich!</h2>
+      <p style="max-width:560px;margin:16px auto 0;">Monika Otterbein – Deine Ansprechpartnerin für Raumausstattung und Interior Design.</p>
+    </div>
+    <div class="leistungen-grid">
+      <div class="leistung-card">
+        <div class="img-placeholder" style="height:280px;"><span>Bild: Individuelle Beratung</span></div>
+        <h4 style="margin-top:16px;">Individuelle Beratung</h4>
+      </div>
+      <div class="leistung-card">
+        <div class="img-placeholder" style="height:280px;"><span>Bild: Raumausstattung / Konzeption</span></div>
+        <h4 style="margin-top:16px;">Raumausstattung</h4>
+      </div>
+      <div class="leistung-card">
+        <div class="img-placeholder" style="height:280px;"><span>Bild: Polsterarbeiten</span></div>
+        <h4 style="margin-top:16px;">Polsterarbeiten und Bezüge</h4>
+      </div>
+      <div class="leistung-card">
+        <div class="img-placeholder" style="height:280px;"><span>Bild: Sonnen- und Sichtschutz</span></div>
+        <h4 style="margin-top:16px;">Sonnen- und Sichtschutz</h4>
+      </div>
+      <div class="leistung-card">
+        <div class="img-placeholder" style="height:280px;"><span>Bild: Räumliches Farbkonzept</span></div>
+        <h4 style="margin-top:16px;">Räumliche Farbkonzepte</h4>
+      </div>
+      <div class="leistung-card">
+        <div class="img-placeholder" style="height:280px;"><span>Bild: Outdoor Living</span></div>
+        <h4 style="margin-top:16px;">Outdoor Living</h4>
+      </div>
+    </div>
+    <div class="leistungen-footer">
+      <a href="leistungen.html" class="btn btn-dark" style="display:inline-block;margin-top:48px;">Details zu den Leistungen</a>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section-reviews">
+    <div class="reviews-inner">
+      <span class="section-tag">Kundenstimmen</span>
+      <h2>Meine Kunden berichten</h2>
+      <div class="divider"></div>
+
+      <div class="review-block">
+        <p class="review-text">„Ich glaube, Monikas besondere Begabung ist es, aus Weniger, Mehr zu machen: Sie hat sich unser Wohnzimmer genau angeschaut und von unseren Bildern wusste Monika genau, welche zu behalten sind, welche nicht und welche einfach anders platziert oder gruppiert werden sollen. Die Wirkung bei so einer vermeintlich bescheidenen Änderung ist nicht zu unterschätzen. Am Ende haben wir dank Monika ein wunderschönes Wohnzimmer, das völlig anders wirkt – aber was ist wirklich neu dazugekommen? Lediglich die neuen Vorhänge und ein Kronleuchter. Alles andere war schon vorhanden – nur wir wussten es nicht!"</p>
+        <span class="review-author">Tina S. aus Leimen</span>
+      </div>
+
+      <div class="review-block">
+        <p class="review-text">„Monika Otterbein hat mit mir und meiner Familie sowie vielen Freunden schon so manchen Umzug miterlebt und uns geholfen, unsere Wohnträume umzusetzen. Die Innenausstatterin hilft mit Fachkenntnis und untrüglichem Geschmack, fühlt sich aber auch immer mit viel Geduld optimal in die Vorstellungen ihres Gegenübers ein. Auch die handwerkliche Ausführung ist stets absolut detailgetreu und perfekt. Kurzum: super gerne immer wieder."</p>
+        <span class="review-author">Christine M. aus Neckargemünd</span>
+      </div>
+
+      <div class="review-deco">
+        <div class="img-placeholder" style="height:80px;"><span>Dekoration / Illustration</span></div>
+      </div>
+
+      <div class="reviews-footer">
+        <a href="rezensionen.html" class="btn btn-outline" style="display:inline-block;">Zu den Rezensionen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ablauf Teaser -->
+  <section class="section-ablauf-teaser">
+    <div class="ablauf-teaser-inner">
+      <span class="section-tag">Zusammenarbeit</span>
+      <h2>Wie gestaltet sich die Zusammenarbeit?</h2>
+      <div class="divider" style="margin:24px auto;"></div>
+      <p>Deine vier Wände sind etwas ganz Persönliches. Deswegen ist meine Arbeit von der Zusammenarbeit mit dir geprägt. Damit du deine Wünsche in die Tat umsetzen kannst, ist es für mich wichtig zu wissen, was genau deine Vorstellungen sind. Ich helfe dir gerne dabei Klarheit bei deinem Entscheidungsprozess zu finden.</p>
+      <a href="ablauf.html" class="btn btn-dark" style="display:inline-block;">Mehr zum Ablauf</a>
+      <div class="ablauf-deco">
+        <div class="img-placeholder" style="height:120px;max-width:200px;margin:32px auto 0;"><span>Grafik</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="section-cta">
+    <div class="cta-image">
+      <div class="img-placeholder" style="height:380px;"><span>Bild: Kontakt / Wohnraum</span></div>
+      <div class="cta-overlay">
+        <div class="cta-overlay-content">
+          <h2>Melde dich jetzt bei mir und wir besprechen, wie ich dir helfen kann.</h2>
+          <a href="kontakt.html" class="btn btn-light" style="display:inline-block;margin-top:0;">Zum Kontakt</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <div class="img-placeholder" style="width:180px;height:60px;background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.4);"><span>Logo Primary</span></div>
+        </div>
+        <div class="footer-links">
+          <a href="ueber-mich.html">Über mich</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="leistungen.html">Leistungen</a>
+          <a href="ablauf.html">Ablauf</a>
+          <a href="kontakt.html">Kontakt</a>
+        </div>
+        <div class="footer-contact">
+          <p>Mobil: <a href="tel:01772498823">0177 2498823</a></p>
+          <p>E-Mail: <a href="mailto:monika@raumdekoration-otterbein.de">monika@raumdekoration-otterbein.de</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright 2025 Monika Otterbein</p>
+        <div class="footer-legal">
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="impressum.html">Impressum</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Sticky nav shadow
+    window.addEventListener('scroll', () => {
+      document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 20);
+    });
+    // Mobile menu
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
