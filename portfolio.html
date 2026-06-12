@@ -1,258 +1,236 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Raumdekoration Monika Otterbein – Portfolio</title>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio – Raumdekoration Monika Otterbein</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --cream: #F7F4EF; --warm: #EDE8DF; --sand: #C9B99A;
-      --mocha: #7A6452; --dark: #2C2318; --white: #FFFFFF; --accent: #B8975A;
+      --teal: rgb(45,106,116); --teal-light: rgb(153,185,189);
+      --teal-pale: rgba(153,185,189,0.18); --teal-dark: rgb(30,75,82);
+      --cream: #F7F5F2; --white: #FFFFFF;
+      --text: rgb(45,106,116); --text-dark: #1a2e31; --text-muted: rgba(45,106,116,0.65);
+      --border: rgba(45,106,116,0.15);
       --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-body: 'Jost', sans-serif;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); background: var(--cream); color: var(--dark); font-size: 16px; line-height: 1.7; }
+    body { font-family: var(--font-body); background: var(--cream); color: var(--text); font-size: 16px; line-height: 1.7; }
     a { text-decoration: none; color: inherit; }
-    .img-placeholder {
-      background: var(--warm); display: flex; align-items: center; justify-content: center;
-      color: var(--sand); font-family: var(--font-body); font-size: 12px;
-      letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--sand); width: 100%;
-    }
-    .img-placeholder span { opacity: 0.6; }
+    .img-ph { background: var(--teal-pale); display: flex; align-items: center; justify-content: center; color: var(--teal-light); font-family: var(--font-body); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px dashed var(--teal-light); width: 100%; }
+    .img-ph span { opacity: 0.7; }
 
-    /* Nav */
-    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: var(--cream); border-bottom: 1px solid var(--warm); transition: box-shadow 0.3s; }
-    .nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
-    .nav-logo .img-placeholder { width: 160px; height: 52px; font-size: 10px; }
-    .nav-links { display: flex; align-items: center; gap: 32px; }
-    .nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dark); transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
-    .nav-cta { background: var(--dark); color: var(--white) !important; padding: 10px 22px; }
-    .nav-cta:hover { background: var(--mocha) !important; }
-    .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .nav-burger span { display: block; width: 24px; height: 2px; background: var(--dark); }
-    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--cream); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 28px; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 76px; background: var(--white); border-bottom: 1px solid var(--border); transition: box-shadow 0.3s; }
+    .nav.scrolled { box-shadow: 0 2px 24px rgba(45,106,116,0.1); }
+    .nav-logo .img-ph { width: 150px; height: 46px; font-size: 9px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--text); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--teal-dark); }
+    .nav-cta { background: var(--teal); color: var(--white) !important; padding: 11px 24px; border-radius: 2px; }
+    .nav-cta:hover { background: var(--teal-dark) !important; }
+    .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-burger span { display: block; width: 24px; height: 2px; background: var(--teal); }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--white); z-index: 199; flex-direction: column; align-items: center; justify-content: center; gap: 28px; }
     .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; }
-    .mobile-menu a.cta-mobile { background: var(--dark); color: var(--white); padding: 14px 36px; margin-top: 8px; }
-    .mobile-close { position: absolute; top: 24px; right: 32px; font-size: 28px; cursor: pointer; }
+    .mobile-menu a { font-size: 13px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text); }
+    .mobile-menu .m-cta { background: var(--teal); color: var(--white); padding: 14px 40px; border-radius: 2px; }
+    .mobile-close { position: absolute; top: 24px; right: 32px; font-size: 30px; cursor: pointer; }
 
-    /* Page Hero */
-    .page-hero { margin-top: 88px; position: relative; height: 62vh; min-height: 380px; overflow: hidden; }
-    .page-hero .img-placeholder { height: 100%; }
-    .page-hero-overlay { position: absolute; inset: 0; background: rgba(44,35,24,0.48); display: flex; align-items: flex-end; padding: 60px 80px; }
-    .page-hero-overlay h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(36px,4vw,60px); color: var(--white); line-height: 1.15; }
+    .page-hero { margin-top: 76px; position: relative; height: 56vh; min-height: 340px; overflow: hidden; }
+    .page-hero .img-ph { height: 100%; }
+    .page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(30,75,82,0.72) 40%, rgba(30,75,82,0.3) 100%); display: flex; align-items: flex-end; padding: 56px 80px; }
+    .page-hero-overlay h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(32px,3.8vw,54px); color: var(--white); line-height: 1.15; }
 
-    /* Shared */
-    .section-tag { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: block; }
-    h2 { font-family: var(--font-display); font-size: clamp(28px,3vw,42px); font-weight: 400; line-height: 1.2; color: var(--dark); }
-    p { font-size: 15px; font-weight: 300; color: var(--mocha); line-height: 1.85; }
-    .divider { width: 48px; height: 1.5px; background: var(--accent); margin: 24px 0; }
-    .btn { display: inline-block; font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 32px; transition: all 0.2s; }
-    .btn-dark { background: var(--dark); color: var(--white); }
-    .btn-dark:hover { background: var(--mocha); }
-    .btn-light { border: 1.5px solid var(--white); color: var(--white); }
-    .btn-light:hover { background: var(--white); color: var(--dark); }
+    .eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); font-weight: 500; display: block; margin-bottom: 12px; }
+    h2 { font-family: var(--font-display); font-size: clamp(28px,3vw,42px); font-weight: 400; line-height: 1.2; color: var(--text-dark); }
+    p { font-size: 15px; font-weight: 300; color: var(--text-muted); line-height: 1.85; }
+    .divider { width: 44px; height: 2px; background: var(--teal-light); margin: 20px 0 28px; }
+    .btn { display: inline-block; font-family: var(--font-body); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; padding: 15px 32px; border-radius: 2px; transition: all 0.22s; }
+    .btn-primary { background: var(--teal); color: var(--white); }
+    .btn-primary:hover { background: var(--teal-dark); }
+    .btn-white { border: 1.5px solid rgba(255,255,255,0.7); color: var(--white); }
+    .btn-white:hover { background: var(--white); color: var(--teal); }
 
-    /* Portfolio Grid */
-    .section-portfolio { padding: 100px 48px; background: var(--white); }
-    .portfolio-header { max-width: 1100px; margin: 0 auto 56px; }
-    .portfolio-grid {
-      max-width: 1100px; margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .portfolio-item { position: relative; overflow: hidden; cursor: pointer; }
-    .portfolio-item .img-placeholder { height: 320px; transition: transform 0.4s ease; }
-    .portfolio-item:hover .img-placeholder { transform: scale(1.03); }
-    .portfolio-item-overlay {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(44,35,24,0.75) 0%, transparent 100%);
-      padding: 28px 20px 20px;
-      color: var(--white);
-      opacity: 0; transition: opacity 0.3s;
-    }
-    .portfolio-item:hover .portfolio-item-overlay { opacity: 1; }
-    .portfolio-item-overlay span { font-family: var(--font-body); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
-    .portfolio-wide { grid-column: span 2; }
-    .portfolio-wide .img-placeholder { height: 420px; }
+    /* Portfolio */
+    .section-portfolio { padding: 90px 48px; background: var(--white); }
+    .port-header { max-width: 1100px; margin: 0 auto 52px; }
+    .port-header p { max-width: 500px; margin-top: 10px; }
+    .port-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .port-item { position: relative; overflow: hidden; cursor: pointer; border-radius: 3px; }
+    .port-item .img-ph { transition: transform 0.4s ease; }
+    .port-item:hover .img-ph { transform: scale(1.04); }
+    .port-item.wide { grid-column: span 2; }
+    .port-item.wide .img-ph { height: 400px; }
+    .port-item:not(.wide) .img-ph { height: 300px; }
+    .port-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(30,75,82,0.82), transparent); padding: 28px 20px 20px; opacity: 0; transition: opacity 0.3s; }
+    .port-item:hover .port-overlay { opacity: 1; }
+    .port-overlay .po-tag { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-light); margin-bottom: 4px; display: block; }
+    .port-overlay .po-title { font-family: var(--font-display); font-size: 18px; color: var(--white); }
 
     /* CTA Banner */
-    .section-cta { position: relative; overflow: hidden; }
-    .cta-image .img-placeholder { height: 380px; }
-    .cta-overlay { position: absolute; inset: 0; background: rgba(44,35,24,0.68); display: flex; align-items: center; justify-content: center; }
-    .cta-overlay-content { text-align: center; color: var(--white); padding: 40px; }
-    .cta-overlay-content h2 { color: var(--white); margin-bottom: 28px; }
+    .section-cta { padding: 0; position: relative; }
+    .cta-wrap { position: relative; }
+    .cta-wrap .img-ph { height: 380px; }
+    .cta-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(30,75,82,0.88), rgba(45,106,116,0.78)); display: flex; align-items: center; justify-content: center; }
+    .cta-content { text-align: center; color: var(--white); padding: 40px; max-width: 640px; }
+    .cta-content h2 { color: var(--white); margin-bottom: 12px; }
+    .cta-content p { color: rgba(255,255,255,0.82); margin-bottom: 28px; }
 
-    /* Footer */
-    footer { background: var(--dark); color: var(--white); padding: 64px 48px 40px; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; }
-    .footer-top { display: grid; grid-template-columns: auto 1fr auto; gap: 48px; align-items: start; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.12); margin-bottom: 32px; }
-    .footer-logo .img-placeholder { width: 180px; height: 60px; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.4); }
-    .footer-links { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; align-items: center; }
-    .footer-links a { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 500; }
-    .footer-links a:hover { color: var(--accent); }
-    .footer-contact { text-align: right; }
-    .footer-contact p { color: rgba(255,255,255,0.6); font-size: 13px; margin-bottom: 4px; }
-    .footer-contact a { color: var(--accent); font-size: 13px; }
-    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-    .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.35); margin: 0; }
-    .footer-legal { display: flex; gap: 20px; }
-    .footer-legal a { font-size: 12px; color: rgba(255,255,255,0.35); }
-    .footer-legal a:hover { color: var(--accent); }
+    footer { background: var(--teal-dark); color: var(--white); padding: 64px 48px 32px; }
+    .foot-inner { max-width: 1100px; margin: 0 auto; }
+    .foot-top { display: grid; grid-template-columns: 220px 1fr auto; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.12); margin-bottom: 28px; }
+    .foot-logo .img-ph { width: 180px; height: 56px; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.4); }
+    .foot-logo p { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 14px; }
+    .foot-nav { display: flex; flex-direction: column; gap: 10px; }
+    .foot-nav a { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 500; }
+    .foot-contact h4 { font-family: var(--font-display); font-size: 18px; color: var(--white); margin-bottom: 14px; }
+    .foot-contact p { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 6px; }
+    .foot-contact a { color: var(--teal-light); font-size: 13px; }
+    .foot-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .foot-bottom p { font-size: 12px; color: rgba(255,255,255,0.3); margin: 0; }
+    .foot-legal { display: flex; gap: 20px; }
+    .foot-legal a { font-size: 12px; color: rgba(255,255,255,0.3); }
 
-    @media (max-width: 900px) {
-      .nav { padding: 16px 24px; }
+    .sticky-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 150; background: var(--teal); padding: 14px 24px; text-align: center; }
+    .sticky-cta a { color: var(--white); font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+
+    @media (max-width: 960px) {
+      .nav { padding: 0 24px; }
       .nav-links { display: none; }
       .nav-burger { display: flex; }
-      .page-hero-overlay { padding: 36px 28px; }
-      .section-portfolio { padding: 64px 24px; }
-      .portfolio-grid { grid-template-columns: 1fr 1fr; }
-      .portfolio-wide { grid-column: span 2; }
-      .portfolio-item .img-placeholder { height: 220px; }
-      .portfolio-wide .img-placeholder { height: 280px; }
-      .footer-top { grid-template-columns: 1fr; text-align: center; }
-      .footer-contact { text-align: center; }
-      .footer-bottom { justify-content: center; }
+      .page-hero-overlay { padding: 32px 28px; }
+      .section-portfolio { padding: 60px 24px; }
+      .port-grid { grid-template-columns: 1fr 1fr; }
+      .port-item.wide { grid-column: span 2; }
+      .port-item.wide .img-ph { height: 260px; }
+      .port-item:not(.wide) .img-ph { height: 200px; }
+      .foot-top { grid-template-columns: 1fr; }
+      .foot-bottom { justify-content: center; }
+      .sticky-cta { display: block; }
+      body { padding-bottom: 52px; }
     }
     @media (max-width: 560px) {
-      .portfolio-grid { grid-template-columns: 1fr; }
-      .portfolio-wide { grid-column: span 1; }
+      .port-grid { grid-template-columns: 1fr; }
+      .port-item.wide { grid-column: span 1; }
     }
   </style>
 </head>
 <body>
-
-  <nav class="nav" id="mainNav">
-    <a href="index.html" class="nav-logo">
-      <div class="img-placeholder" style="width:160px;height:52px;"><span>Logo</span></div>
-    </a>
-    <div class="nav-links">
-      <a href="ueber-mich.html">Über mich</a>
-      <a href="portfolio.html" class="active">Portfolio</a>
-      <a href="leistungen.html">Leistungen</a>
-      <a href="ablauf.html">Ablauf</a>
-      <a href="rezensionen.html">Rezensionen</a>
-      <a href="kontakt.html" class="btn nav-cta">Jetzt anfragen</a>
-    </div>
-    <div class="nav-burger" id="burger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
-  </nav>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <span class="mobile-close" onclick="toggleMenu()">×</span>
-    <a href="ueber-mich.html" onclick="toggleMenu()">Über mich</a>
-    <a href="portfolio.html" onclick="toggleMenu()">Portfolio</a>
-    <a href="leistungen.html" onclick="toggleMenu()">Leistungen</a>
-    <a href="ablauf.html" onclick="toggleMenu()">Ablauf</a>
-    <a href="rezensionen.html" onclick="toggleMenu()">Rezensionen</a>
-    <a href="kontakt.html" class="cta-mobile" onclick="toggleMenu()">Jetzt anfragen</a>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo"><div class="img-ph" style="width:150px;height:46px;"><span>Logo</span></div></a>
+  <div class="nav-links">
+    <a href="ueber-mich.html">Über mich</a><a href="portfolio.html" class="active">Portfolio</a>
+    <a href="leistungen.html">Leistungen</a><a href="ablauf.html">Ablauf</a>
+    <a href="rezensionen.html">Rezensionen</a><a href="kontakt.html" class="nav-cta">Jetzt anfragen</a>
   </div>
+  <div class="nav-burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mobile-close" onclick="toggleMenu()">×</span>
+  <a href="ueber-mich.html" onclick="toggleMenu()">Über mich</a>
+  <a href="portfolio.html" onclick="toggleMenu()">Portfolio</a>
+  <a href="leistungen.html" onclick="toggleMenu()">Leistungen</a>
+  <a href="ablauf.html" onclick="toggleMenu()">Ablauf</a>
+  <a href="rezensionen.html" onclick="toggleMenu()">Rezensionen</a>
+  <a href="kontakt.html" class="m-cta" onclick="toggleMenu()">Jetzt anfragen</a>
+</div>
 
-  <div class="page-hero">
-    <div class="img-placeholder" style="height:100%;"><span>Bild: Portfolio Hero</span></div>
-    <div class="page-hero-overlay">
-      <h1>Projekte &amp; Portfolio</h1>
+<div class="page-hero">
+  <div class="img-ph" style="height:100%;"><span>Bild: Portfolio Hero</span></div>
+  <div class="page-hero-overlay"><h1>Ausgewählte Projekte</h1></div>
+</div>
+
+<section class="section-portfolio">
+  <div class="port-header">
+    <span class="eyebrow">Referenzen</span>
+    <h2>Einblicke in realisierte Projekte</h2>
+    <div class="divider"></div>
+    <p>Von der ersten Idee bis zum fertigen Ergebnis – hier siehst du, was möglich ist.</p>
+  </div>
+  <div class="port-grid">
+    <div class="port-item wide">
+      <div class="img-ph" style="height:400px;"><span>Portfolio Bild 1 (groß) – Wohnzimmer</span></div>
+      <div class="port-overlay"><span class="po-tag">Wohnzimmer</span><span class="po-title">Komplette Neugestaltung · Leimen</span></div>
+    </div>
+    <div class="port-item">
+      <div class="img-ph" style="height:300px;"><span>Portfolio Bild 2 – Gardinen</span></div>
+      <div class="port-overlay"><span class="po-tag">Gardinen</span><span class="po-title">Maßgardinen · Heidelberg</span></div>
+    </div>
+    <div class="port-item">
+      <div class="img-ph" style="height:300px;"><span>Portfolio Bild 3 – Polster</span></div>
+      <div class="port-overlay"><span class="po-tag">Polster</span><span class="po-title">Stuhlbezüge · Neckargemünd</span></div>
+    </div>
+    <div class="port-item">
+      <div class="img-ph" style="height:300px;"><span>Portfolio Bild 4 – Schlafzimmer</span></div>
+      <div class="port-overlay"><span class="po-tag">Schlafzimmer</span><span class="po-title">Farbkonzept &amp; Textilien</span></div>
+    </div>
+    <div class="port-item wide">
+      <div class="img-ph" style="height:400px;"><span>Portfolio Bild 5 (groß) – Outdoor</span></div>
+      <div class="port-overlay"><span class="po-tag">Outdoor Living</span><span class="po-title">Terrasse &amp; Garten · Altrip</span></div>
+    </div>
+    <div class="port-item">
+      <div class="img-ph" style="height:300px;"><span>Portfolio Bild 6 – Farbkonzept</span></div>
+      <div class="port-overlay"><span class="po-tag">Farbkonzept</span><span class="po-title">Räumliche Farbgestaltung</span></div>
+    </div>
+    <div class="port-item">
+      <div class="img-ph" style="height:300px;"><span>Portfolio Bild 7 – Sonnenschutz</span></div>
+      <div class="port-overlay"><span class="po-tag">Sonnenschutz</span><span class="po-title">Plissees &amp; Rollos</span></div>
+    </div>
+    <div class="port-item">
+      <div class="img-ph" style="height:300px;"><span>Portfolio Bild 8 – Accessoires</span></div>
+      <div class="port-overlay"><span class="po-tag">Accessoires</span><span class="po-title">Wohndetails &amp; Kissen</span></div>
     </div>
   </div>
+</section>
 
-  <section class="section-portfolio">
-    <div class="portfolio-header">
-      <span class="section-tag">Referenzen</span>
-      <h2>Ausgewählte Projekte</h2>
-      <div class="divider"></div>
-      <p style="max-width:520px;">Einblicke in realisierte Wohnprojekte – von der ersten Idee bis zum fertigen Ergebnis.</p>
-    </div>
-
-    <div class="portfolio-grid">
-      <div class="portfolio-item portfolio-wide">
-        <div class="img-placeholder" style="height:420px;"><span>Portfolio Bild 1 (groß)</span></div>
-        <div class="portfolio-item-overlay"><span>Wohnzimmer · Leimen</span></div>
-      </div>
-      <div class="portfolio-item">
-        <div class="img-placeholder" style="height:320px;"><span>Portfolio Bild 2</span></div>
-        <div class="portfolio-item-overlay"><span>Gardinen · Heidelberg</span></div>
-      </div>
-      <div class="portfolio-item">
-        <div class="img-placeholder" style="height:320px;"><span>Portfolio Bild 3</span></div>
-        <div class="portfolio-item-overlay"><span>Polster · Neckargemünd</span></div>
-      </div>
-      <div class="portfolio-item">
-        <div class="img-placeholder" style="height:320px;"><span>Portfolio Bild 4</span></div>
-        <div class="portfolio-item-overlay"><span>Schlafzimmer</span></div>
-      </div>
-      <div class="portfolio-item portfolio-wide">
-        <div class="img-placeholder" style="height:420px;"><span>Portfolio Bild 5 (groß)</span></div>
-        <div class="portfolio-item-overlay"><span>Outdoor Living · Altrip</span></div>
-      </div>
-      <div class="portfolio-item">
-        <div class="img-placeholder" style="height:320px;"><span>Portfolio Bild 6</span></div>
-        <div class="portfolio-item-overlay"><span>Farbkonzept</span></div>
-      </div>
-      <div class="portfolio-item">
-        <div class="img-placeholder" style="height:320px;"><span>Portfolio Bild 7</span></div>
-        <div class="portfolio-item-overlay"><span>Sonnenschutz</span></div>
-      </div>
-      <div class="portfolio-item">
-        <div class="img-placeholder" style="height:320px;"><span>Portfolio Bild 8</span></div>
-        <div class="portfolio-item-overlay"><span>Wohnaccessoires</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Banner -->
-  <section class="section-cta">
-    <div class="cta-image">
-      <div class="img-placeholder" style="height:380px;"><span>Bild: Kontakt / Wohnraum</span></div>
-      <div class="cta-overlay">
-        <div class="cta-overlay-content">
-          <h2>Melde dich jetzt bei mir und wir besprechen, wie ich dir helfen kann.</h2>
-          <a href="kontakt.html" class="btn btn-light">Zum Kontakt</a>
+<section class="section-cta">
+  <div class="cta-wrap">
+    <div class="img-ph" style="height:380px;"><span>Bild: Schöner Wohnraum</span></div>
+    <div class="cta-overlay">
+      <div class="cta-content">
+        <span class="eyebrow" style="color:rgba(153,185,189,0.9);display:block;">Dein Projekt als nächstes?</span>
+        <h2>Das Erstgespräch ist kostenlos und unverbindlich.</h2>
+        <p>Ich freue mich darauf, auch dein Zuhause zu einem Ort zu machen, an dem du dich rundum wohlfühlst.</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+          <a href="kontakt.html" class="btn btn-white">Jetzt anfragen</a>
+          <a href="tel:01772498823" class="btn btn-white">0177 2498823</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div class="footer-logo">
-          <div class="img-placeholder" style="width:180px;height:60px;background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.4);"><span>Logo Primary</span></div>
-        </div>
-        <div class="footer-links">
-          <a href="ueber-mich.html">Über mich</a>
-          <a href="portfolio.html">Portfolio</a>
-          <a href="leistungen.html">Leistungen</a>
-          <a href="ablauf.html">Ablauf</a>
-          <a href="kontakt.html">Kontakt</a>
-        </div>
-        <div class="footer-contact">
-          <p>Mobil: <a href="tel:01772498823">0177 2498823</a></p>
-          <p>E-Mail: <a href="mailto:monika@raumdekoration-otterbein.de">monika@raumdekoration-otterbein.de</a></p>
-        </div>
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="foot-logo">
+        <div class="img-ph" style="width:180px;height:56px;background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.4);"><span>Logo</span></div>
+        <p>Raumdekoration &amp; Interior Design<br />im Raum Heidelberg</p>
       </div>
-      <div class="footer-bottom">
-        <p>Copyright 2025 Monika Otterbein</p>
-        <div class="footer-legal">
-          <a href="datenschutz.html">Datenschutz</a>
-          <a href="impressum.html">Impressum</a>
-        </div>
+      <nav class="foot-nav">
+        <a href="ueber-mich.html">Über mich</a><a href="portfolio.html">Portfolio</a>
+        <a href="leistungen.html">Leistungen</a><a href="ablauf.html">Ablauf</a>
+        <a href="rezensionen.html">Rezensionen</a><a href="kontakt.html">Kontakt</a>
+      </nav>
+      <div class="foot-contact">
+        <h4>Kontakt</h4>
+        <p>📞 <a href="tel:01772498823">0177 2498823</a></p>
+        <p>✉️ <a href="mailto:monika@raumdekoration-otterbein.de">monika@raumdekoration-otterbein.de</a></p>
       </div>
     </div>
-  </footer>
-
-  <script>
-    window.addEventListener('scroll', () => {
-      document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 20);
-    });
-    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
-  </script>
+    <div class="foot-bottom">
+      <p>Copyright 2025 Monika Otterbein</p>
+      <div class="foot-legal"><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a></div>
+    </div>
+  </div>
+</footer>
+<div class="sticky-cta"><a href="kontakt.html">→ Kostenlos anfragen</a></div>
+<script>
+  window.addEventListener('scroll', () => document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 20));
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+</script>
 </body>
 </html>

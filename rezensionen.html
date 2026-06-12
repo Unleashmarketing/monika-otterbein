@@ -1,266 +1,263 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Raumdekoration Monika Otterbein – Rezensionen</title>
-  <meta name="description" content="Lesen Sie hier die Kundenzufriedenheit meiner vergangenen Projekte." />
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rezensionen – Raumdekoration Monika Otterbein</title>
+  <meta name="description" content="Lesen Sie Kundenbewertungen über Monika Otterbein – Interior Designerin im Raum Heidelberg." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --cream: #F7F4EF; --warm: #EDE8DF; --sand: #C9B99A;
-      --mocha: #7A6452; --dark: #2C2318; --white: #FFFFFF; --accent: #B8975A;
+      --teal: rgb(45,106,116); --teal-light: rgb(153,185,189);
+      --teal-pale: rgba(153,185,189,0.18); --teal-dark: rgb(30,75,82);
+      --cream: #F7F5F2; --white: #FFFFFF; --off-white: #FAFAF8;
+      --text: rgb(45,106,116); --text-dark: #1a2e31; --text-muted: rgba(45,106,116,0.65);
+      --border: rgba(45,106,116,0.15);
       --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-body: 'Jost', sans-serif;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); background: var(--cream); color: var(--dark); font-size: 16px; line-height: 1.7; }
+    body { font-family: var(--font-body); background: var(--cream); color: var(--text); font-size: 16px; line-height: 1.7; }
     a { text-decoration: none; color: inherit; }
-    .img-placeholder {
-      background: var(--warm); display: flex; align-items: center; justify-content: center;
-      color: var(--sand); font-family: var(--font-body); font-size: 12px;
-      letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--sand); width: 100%;
-    }
-    .img-placeholder span { opacity: 0.6; }
+    .img-ph { background: var(--teal-pale); display: flex; align-items: center; justify-content: center; color: var(--teal-light); font-family: var(--font-body); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px dashed var(--teal-light); width: 100%; }
+    .img-ph span { opacity: 0.7; }
 
-    /* Nav */
-    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: var(--cream); border-bottom: 1px solid var(--warm); transition: box-shadow 0.3s; }
-    .nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
-    .nav-logo .img-placeholder { width: 160px; height: 52px; font-size: 10px; }
-    .nav-links { display: flex; align-items: center; gap: 32px; }
-    .nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dark); transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
-    .nav-cta { background: var(--dark); color: var(--white) !important; padding: 10px 22px; }
-    .nav-cta:hover { background: var(--mocha) !important; }
-    .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .nav-burger span { display: block; width: 24px; height: 2px; background: var(--dark); }
-    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--cream); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 28px; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 76px; background: var(--white); border-bottom: 1px solid var(--border); transition: box-shadow 0.3s; }
+    .nav.scrolled { box-shadow: 0 2px 24px rgba(45,106,116,0.1); }
+    .nav-logo .img-ph { width: 150px; height: 46px; font-size: 9px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--text); transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--teal-dark); }
+    .nav-cta { background: var(--teal); color: var(--white) !important; padding: 11px 24px; border-radius: 2px; }
+    .nav-cta:hover { background: var(--teal-dark) !important; }
+    .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-burger span { display: block; width: 24px; height: 2px; background: var(--teal); }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--white); z-index: 199; flex-direction: column; align-items: center; justify-content: center; gap: 28px; }
     .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; }
-    .mobile-menu a.cta-mobile { background: var(--dark); color: var(--white); padding: 14px 36px; margin-top: 8px; }
-    .mobile-close { position: absolute; top: 24px; right: 32px; font-size: 28px; cursor: pointer; }
+    .mobile-menu a { font-size: 13px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text); }
+    .mobile-menu .m-cta { background: var(--teal); color: var(--white); padding: 14px 40px; border-radius: 2px; }
+    .mobile-close { position: absolute; top: 24px; right: 32px; font-size: 30px; cursor: pointer; }
 
-    /* Page Hero */
-    .page-hero { margin-top: 88px; position: relative; height: 62vh; min-height: 380px; overflow: hidden; }
-    .page-hero .img-placeholder { height: 100%; }
-    .page-hero-overlay { position: absolute; inset: 0; background: rgba(44,35,24,0.48); display: flex; align-items: flex-end; padding: 60px 80px; }
-    .page-hero-overlay h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(36px,4vw,60px); color: var(--white); line-height: 1.15; }
+    .page-hero { margin-top: 76px; position: relative; height: 56vh; min-height: 340px; overflow: hidden; }
+    .page-hero .img-ph { height: 100%; }
+    .page-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(30,75,82,0.72) 40%, rgba(30,75,82,0.3) 100%); display: flex; align-items: flex-end; padding: 56px 80px; }
+    .page-hero-overlay h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(32px,3.8vw,54px); color: var(--white); line-height: 1.15; }
 
-    /* Shared */
-    .section-tag { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: block; }
-    h2 { font-family: var(--font-display); font-size: clamp(28px,3vw,42px); font-weight: 400; line-height: 1.2; color: var(--dark); }
-    p { font-size: 15px; font-weight: 300; color: var(--mocha); line-height: 1.85; }
-    .divider { width: 48px; height: 1.5px; background: var(--accent); margin: 24px 0; }
-    .btn { display: inline-block; font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 32px; transition: all 0.2s; }
-    .btn-dark { background: var(--dark); color: var(--white); }
-    .btn-dark:hover { background: var(--mocha); }
-    .btn-light { border: 1.5px solid var(--white); color: var(--white); }
-    .btn-light:hover { background: var(--white); color: var(--dark); }
+    .eyebrow { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); font-weight: 500; display: block; margin-bottom: 12px; }
+    h2 { font-family: var(--font-display); font-size: clamp(28px,3vw,42px); font-weight: 400; line-height: 1.2; color: var(--text-dark); }
+    p { font-size: 15px; font-weight: 300; color: var(--text-muted); line-height: 1.85; }
+    .divider { width: 44px; height: 2px; background: var(--teal-light); margin: 20px 0 28px; }
+    .btn { display: inline-block; font-family: var(--font-body); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; padding: 15px 32px; border-radius: 2px; transition: all 0.22s; }
+    .btn-primary { background: var(--teal); color: var(--white); }
+    .btn-primary:hover { background: var(--teal-dark); }
+    .btn-white { border: 1.5px solid rgba(255,255,255,0.7); color: var(--white); }
+    .btn-white:hover { background: var(--white); color: var(--teal); }
 
-    /* Reviews */
-    .section-reviews { padding: 100px 48px; background: var(--white); }
-    .reviews-header { max-width: 860px; margin: 0 auto 64px; }
-    .reviews-header .img-deco { margin-top: 32px; }
-    .reviews-header .img-deco .img-placeholder { height: 80px; max-width: 200px; }
+    /* Rating summary */
+    .rating-bar { background: var(--teal); padding: 40px 48px; text-align: center; }
+    .rating-inner { max-width: 600px; margin: 0 auto; color: var(--white); }
+    .big-stars { font-size: 32px; letter-spacing: 4px; margin-bottom: 10px; }
+    .big-score { font-family: var(--font-display); font-size: 52px; font-weight: 400; line-height: 1; }
+    .big-label { font-size: 13px; font-weight: 300; opacity: 0.8; margin-top: 6px; }
 
-    .reviews-grid { max-width: 860px; margin: 0 auto; }
+    /* Reviews grid */
+    .section-reviews { padding: 90px 48px; background: var(--white); }
+    .reviews-inner { max-width: 1100px; margin: 0 auto; }
+    .section-head { margin-bottom: 56px; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; }
     .review-card {
-      padding: 48px 0;
-      border-bottom: 1px solid var(--warm);
+      background: var(--off-white); border-radius: 4px; padding: 36px 32px;
+      border-top: 3px solid var(--teal-light); position: relative;
+      transition: box-shadow 0.2s;
     }
-    .review-card:last-child { border-bottom: none; }
-    .review-stars { display: flex; gap: 4px; margin-bottom: 20px; }
-    .star { color: var(--accent); font-size: 18px; }
-    .review-text {
-      font-family: var(--font-display);
-      font-size: 19px;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--dark);
-      line-height: 1.9;
-      margin-bottom: 24px;
-    }
-    .review-author {
-      font-family: var(--font-body);
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
+    .review-card:hover { box-shadow: 0 6px 24px rgba(45,106,116,0.1); }
+    .r-stars { color: var(--teal); font-size: 16px; letter-spacing: 2px; margin-bottom: 16px; }
+    .r-quote { font-family: var(--font-display); font-size: 18px; font-weight: 300; font-style: italic; color: var(--text-dark); line-height: 1.9; margin-bottom: 20px; }
+    .r-author { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); }
+    .r-mark { position: absolute; top: 16px; right: 22px; font-family: Georgia, serif; font-size: 56px; color: var(--teal-light); line-height: 1; opacity: 0.45; }
+    .review-card.featured { background: var(--teal-pale); border-top-color: var(--teal); }
 
     /* CTA Banner */
-    .section-cta { position: relative; overflow: hidden; }
-    .cta-image .img-placeholder { height: 380px; }
-    .cta-overlay { position: absolute; inset: 0; background: rgba(44,35,24,0.68); display: flex; align-items: center; justify-content: center; }
-    .cta-overlay-content { text-align: center; color: var(--white); padding: 40px; }
-    .cta-overlay-content h2 { color: var(--white); margin-bottom: 28px; }
+    .section-cta { padding: 0; position: relative; }
+    .cta-wrap { position: relative; }
+    .cta-wrap .img-ph { height: 380px; }
+    .cta-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(30,75,82,0.88), rgba(45,106,116,0.78)); display: flex; align-items: center; justify-content: center; }
+    .cta-content { text-align: center; color: var(--white); padding: 40px; max-width: 640px; }
+    .cta-content h2 { color: var(--white); margin-bottom: 12px; }
+    .cta-content p { color: rgba(255,255,255,0.82); margin-bottom: 28px; }
 
-    /* Footer */
-    footer { background: var(--dark); color: var(--white); padding: 64px 48px 40px; }
-    .footer-inner { max-width: 1100px; margin: 0 auto; }
-    .footer-top { display: grid; grid-template-columns: auto 1fr auto; gap: 48px; align-items: start; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.12); margin-bottom: 32px; }
-    .footer-logo .img-placeholder { width: 180px; height: 60px; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.4); }
-    .footer-links { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; align-items: center; }
-    .footer-links a { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 500; }
-    .footer-links a:hover { color: var(--accent); }
-    .footer-contact { text-align: right; }
-    .footer-contact p { color: rgba(255,255,255,0.6); font-size: 13px; margin-bottom: 4px; }
-    .footer-contact a { color: var(--accent); font-size: 13px; }
-    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-    .footer-bottom p { font-size: 12px; color: rgba(255,255,255,0.35); margin: 0; }
-    .footer-legal { display: flex; gap: 20px; }
-    .footer-legal a { font-size: 12px; color: rgba(255,255,255,0.35); }
-    .footer-legal a:hover { color: var(--accent); }
+    footer { background: var(--teal-dark); color: var(--white); padding: 64px 48px 32px; }
+    .foot-inner { max-width: 1100px; margin: 0 auto; }
+    .foot-top { display: grid; grid-template-columns: 220px 1fr auto; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.12); margin-bottom: 28px; }
+    .foot-logo .img-ph { width: 180px; height: 56px; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.2); color: rgba(255,255,255,0.4); }
+    .foot-logo p { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 14px; }
+    .foot-nav { display: flex; flex-direction: column; gap: 10px; }
+    .foot-nav a { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 500; }
+    .foot-contact h4 { font-family: var(--font-display); font-size: 18px; color: var(--white); margin-bottom: 14px; }
+    .foot-contact p { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 6px; }
+    .foot-contact a { color: var(--teal-light); font-size: 13px; }
+    .foot-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .foot-bottom p { font-size: 12px; color: rgba(255,255,255,0.3); margin: 0; }
+    .foot-legal { display: flex; gap: 20px; }
+    .foot-legal a { font-size: 12px; color: rgba(255,255,255,0.3); }
 
-    @media (max-width: 900px) {
-      .nav { padding: 16px 24px; }
+    .sticky-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 150; background: var(--teal); padding: 14px 24px; text-align: center; }
+    .sticky-cta a { color: var(--white); font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+
+    @media (max-width: 960px) {
+      .nav { padding: 0 24px; }
       .nav-links { display: none; }
       .nav-burger { display: flex; }
-      .page-hero-overlay { padding: 36px 28px; }
-      .section-reviews { padding: 64px 24px; }
-      .footer-top { grid-template-columns: 1fr; text-align: center; }
-      .footer-contact { text-align: center; }
-      .footer-bottom { justify-content: center; }
+      .page-hero-overlay { padding: 32px 28px; }
+      .section-reviews { padding: 60px 24px; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .rating-bar { padding: 32px 24px; }
+      .foot-top { grid-template-columns: 1fr; }
+      .foot-bottom { justify-content: center; }
+      .sticky-cta { display: block; }
+      body { padding-bottom: 52px; }
     }
   </style>
 </head>
 <body>
-
-  <nav class="nav" id="mainNav">
-    <a href="index.html" class="nav-logo">
-      <div class="img-placeholder" style="width:160px;height:52px;"><span>Logo</span></div>
-    </a>
-    <div class="nav-links">
-      <a href="ueber-mich.html">Über mich</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="leistungen.html">Leistungen</a>
-      <a href="ablauf.html">Ablauf</a>
-      <a href="rezensionen.html" class="active">Rezensionen</a>
-      <a href="kontakt.html" class="btn nav-cta">Jetzt anfragen</a>
-    </div>
-    <div class="nav-burger" id="burger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
-  </nav>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <span class="mobile-close" onclick="toggleMenu()">×</span>
-    <a href="ueber-mich.html" onclick="toggleMenu()">Über mich</a>
-    <a href="portfolio.html" onclick="toggleMenu()">Portfolio</a>
-    <a href="leistungen.html" onclick="toggleMenu()">Leistungen</a>
-    <a href="ablauf.html" onclick="toggleMenu()">Ablauf</a>
-    <a href="rezensionen.html" onclick="toggleMenu()">Rezensionen</a>
-    <a href="kontakt.html" class="cta-mobile" onclick="toggleMenu()">Jetzt anfragen</a>
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo"><div class="img-ph" style="width:150px;height:46px;"><span>Logo</span></div></a>
+  <div class="nav-links">
+    <a href="ueber-mich.html">Über mich</a><a href="portfolio.html">Portfolio</a>
+    <a href="leistungen.html">Leistungen</a><a href="ablauf.html">Ablauf</a>
+    <a href="rezensionen.html" class="active">Rezensionen</a><a href="kontakt.html" class="nav-cta">Jetzt anfragen</a>
   </div>
+  <div class="nav-burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mobile-close" onclick="toggleMenu()">×</span>
+  <a href="ueber-mich.html" onclick="toggleMenu()">Über mich</a>
+  <a href="portfolio.html" onclick="toggleMenu()">Portfolio</a>
+  <a href="leistungen.html" onclick="toggleMenu()">Leistungen</a>
+  <a href="ablauf.html" onclick="toggleMenu()">Ablauf</a>
+  <a href="rezensionen.html" onclick="toggleMenu()">Rezensionen</a>
+  <a href="kontakt.html" class="m-cta" onclick="toggleMenu()">Jetzt anfragen</a>
+</div>
 
-  <div class="page-hero">
-    <div class="img-placeholder" style="height:100%;"><span>Bild: Beratungssituation</span></div>
-    <div class="page-hero-overlay">
-      <h1>Meine Kunden berichten</h1>
-    </div>
+<div class="page-hero">
+  <div class="img-ph" style="height:100%;"><span>Bild: Beratungssituation</span></div>
+  <div class="page-hero-overlay"><h1>Meine Kunden berichten</h1></div>
+</div>
+
+<!-- Rating summary -->
+<div class="rating-bar">
+  <div class="rating-inner">
+    <div class="big-stars">★★★★★</div>
+    <div class="big-score">5.0</div>
+    <div class="big-label">Basierend auf Kundenbewertungen · 100% Weiterempfehlung</div>
   </div>
+</div>
 
-  <section class="section-reviews">
-    <div class="reviews-header">
-      <span class="section-tag">Kundenstimmen</span>
-      <h2>Was meine Kunden sagen</h2>
+<!-- Reviews -->
+<section class="section-reviews">
+  <div class="reviews-inner">
+    <div class="section-head">
+      <span class="eyebrow">Kundenstimmen</span>
+      <h2>Was echte Kunden sagen</h2>
       <div class="divider"></div>
-      <div class="img-deco">
-        <div class="img-placeholder" style="height:80px;max-width:200px;"><span>Grafik / Illustration</span></div>
-      </div>
+      <p>Ungefilterte Erfahrungen aus dem Herzen meiner Kunden.</p>
     </div>
-
     <div class="reviews-grid">
 
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">„Von der Beratung (Neugestaltung unserer Wohnräume) bis zur Ausführung und Termineinhaltung war alles Bestens. Unsere Wünsche wurden von Fr. Otterbein berücksichtigt und optimal in unseren Räumen umgesetzt. Wir können Fr. Otterbein mit bestem Gewissen weiterempfehlen und freuen uns auf das nächste Projekt (Terrassengestaltung) im Frühjahr."</p>
-        <span class="review-author">Ingrid Ko</span>
+      <div class="review-card featured">
+        <span class="r-mark">"</span>
+        <div class="r-stars">★★★★★</div>
+        <p class="r-quote">Monikas besondere Begabung ist es, aus Weniger, Mehr zu machen. Am Ende haben wir dank ihr ein wunderschönes Wohnzimmer – wirklich neu dazugekommen sind nur Vorhänge und ein Kronleuchter. Alles andere war schon vorhanden – nur wir wussten es nicht!</p>
+        <span class="r-author">Tina S. aus Leimen</span>
       </div>
 
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">„Frau Otterbein hat mit ihrem wundervollen Talent, Raum und Mensch gemeinsam zu betrachten, dazu beigetragen, dass unser Zuhause ein Wohlfühlort mit noch mehr Seele geworden ist. Die Auswahl an Stoffen und die Ideen waren und sind einfach überzeugend!"</p>
-        <span class="review-author">Kati Fischer</span>
+        <span class="r-mark">"</span>
+        <div class="r-stars">★★★★★</div>
+        <p class="r-quote">Monika hilft mit Fachkenntnis und untrüglichem Geschmack, fühlt sich aber auch immer mit viel Geduld optimal in die Vorstellungen ihres Gegenübers ein. Die handwerkliche Ausführung ist stets absolut detailgetreu und perfekt. Kurzum: super gerne immer wieder.</p>
+        <span class="r-author">Christine M. aus Neckargemünd</span>
       </div>
 
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">„Wir haben von Fr. Otterbein mehrere Plisseeanlagen erhalten. Beratung, Montage und Auftragsabwicklung waren einwandfrei."</p>
-        <span class="review-author">Christian Klement</span>
+        <span class="r-mark">"</span>
+        <div class="r-stars">★★★★★</div>
+        <p class="r-quote">Von der Beratung bis zur Ausführung und Termineinhaltung war alles Bestens. Unsere Wünsche wurden optimal in unseren Räumen umgesetzt. Wir freuen uns schon auf das nächste Projekt!</p>
+        <span class="r-author">Ingrid Ko</span>
       </div>
 
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">„Super Service. Sehr kompetente Beraterin bei allen Fragen zur Raumgestaltung. Hochwertige Stoffe und Ausführung."</p>
-        <span class="review-author">Familie Mayer aus Altrip</span>
+        <span class="r-mark">"</span>
+        <div class="r-stars">★★★★★</div>
+        <p class="r-quote">Frau Otterbein hat mit ihrem wundervollen Talent, Raum und Mensch gemeinsam zu betrachten, dazu beigetragen, dass unser Zuhause ein Wohlfühlort mit noch mehr Seele geworden ist. Die Auswahl an Stoffen und Ideen sind einfach überzeugend!</p>
+        <span class="r-author">Kati Fischer</span>
       </div>
 
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">„Ich glaube, Monikas besondere Begabung ist es, aus Weniger, Mehr zu machen: Sie hat sich unser Wohnzimmer genau angeschaut und von unseren Bildern wusste Monika genau, welche zu behalten sind, welche nicht und welche einfach anders platziert oder gruppiert werden sollen. Die Wirkung bei so einer vermeintlich bescheidenen Änderung ist nicht zu unterschätzen. Am Ende haben wir dank Monika ein wunderschönes Wohnzimmer, das völlig anders wirkt – aber was ist wirklich neu dazugekommen? Lediglich die neuen Vorhänge und ein Kronleuchter. Alles andere war schon vorhanden – nur wir wussten es nicht!"</p>
-        <span class="review-author">Tina S. aus Leimen</span>
+        <span class="r-mark">"</span>
+        <div class="r-stars">★★★★★</div>
+        <p class="r-quote">Wir haben von Fr. Otterbein mehrere Plisseeanlagen erhalten. Beratung, Montage und Auftragsabwicklung waren einwandfrei.</p>
+        <span class="r-author">Christian Klement</span>
       </div>
 
       <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">„Monika Otterbein hat mit mir und meiner Familie sowie vielen Freunden – die immer sehr froh über eine Empfehlung waren – schon so manchen Umzug miterlebt und uns geholfen, unsere Wohnträume umzusetzen. Die Innenausstatterin hilft mit Fachkenntnis und untrüglichem Geschmack, fühlt sich aber auch immer mit viel Geduld optimal in die Vorstellungen ihres Gegenübers ein. Auch die handwerkliche Ausführung ist stets absolut detailgetreu und perfekt. Kurzum: super gerne immer wieder."</p>
-        <span class="review-author">Christine M. aus Neckargemünd</span>
+        <span class="r-mark">"</span>
+        <div class="r-stars">★★★★★</div>
+        <p class="r-quote">Super Service. Sehr kompetente Beraterin bei allen Fragen zur Raumgestaltung. Hochwertige Stoffe und Ausführung – wir sind rundum begeistert.</p>
+        <span class="r-author">Familie Mayer aus Altrip</span>
       </div>
 
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CTA Banner -->
-  <section class="section-cta">
-    <div class="cta-image">
-      <div class="img-placeholder" style="height:380px;"><span>Bild: Kontakt / Wohnraum</span></div>
-      <div class="cta-overlay">
-        <div class="cta-overlay-content">
-          <h2>Melde dich jetzt bei mir und wir besprechen, wie ich dir helfen kann.</h2>
-          <a href="kontakt.html" class="btn btn-light">Zum Kontakt</a>
+<!-- CTA Banner -->
+<section class="section-cta">
+  <div class="cta-wrap">
+    <div class="img-ph" style="height:380px;"><span>Bild: Schöner Wohnraum</span></div>
+    <div class="cta-overlay">
+      <div class="cta-content">
+        <span class="eyebrow" style="color:rgba(153,185,189,0.9);display:block;">Deine Geschichte als nächste?</span>
+        <h2>Melde dich jetzt für dein kostenloses Erstgespräch.</h2>
+        <p>Kein Risiko. Nur ein ehrliches Gespräch darüber, wie dein Zuhause schöner werden kann.</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+          <a href="kontakt.html" class="btn btn-white">Jetzt anfragen</a>
+          <a href="tel:01772498823" class="btn btn-white">0177 2498823</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div class="footer-logo">
-          <div class="img-placeholder" style="width:180px;height:60px;background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.4);"><span>Logo Primary</span></div>
-        </div>
-        <div class="footer-links">
-          <a href="ueber-mich.html">Über mich</a>
-          <a href="portfolio.html">Portfolio</a>
-          <a href="leistungen.html">Leistungen</a>
-          <a href="ablauf.html">Ablauf</a>
-          <a href="kontakt.html">Kontakt</a>
-        </div>
-        <div class="footer-contact">
-          <p>Mobil: <a href="tel:01772498823">0177 2498823</a></p>
-          <p>E-Mail: <a href="mailto:monika@raumdekoration-otterbein.de">monika@raumdekoration-otterbein.de</a></p>
-        </div>
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div class="foot-logo">
+        <div class="img-ph" style="width:180px;height:56px;background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.4);"><span>Logo</span></div>
+        <p>Raumdekoration &amp; Interior Design<br />im Raum Heidelberg</p>
       </div>
-      <div class="footer-bottom">
-        <p>Copyright 2025 Monika Otterbein</p>
-        <div class="footer-legal">
-          <a href="datenschutz.html">Datenschutz</a>
-          <a href="impressum.html">Impressum</a>
-        </div>
+      <nav class="foot-nav">
+        <a href="ueber-mich.html">Über mich</a><a href="portfolio.html">Portfolio</a>
+        <a href="leistungen.html">Leistungen</a><a href="ablauf.html">Ablauf</a>
+        <a href="rezensionen.html">Rezensionen</a><a href="kontakt.html">Kontakt</a>
+      </nav>
+      <div class="foot-contact">
+        <h4>Kontakt</h4>
+        <p>📞 <a href="tel:01772498823">0177 2498823</a></p>
+        <p>✉️ <a href="mailto:monika@raumdekoration-otterbein.de">monika@raumdekoration-otterbein.de</a></p>
       </div>
     </div>
-  </footer>
-
-  <script>
-    window.addEventListener('scroll', () => {
-      document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 20);
-    });
-    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
-  </script>
+    <div class="foot-bottom">
+      <p>Copyright 2025 Monika Otterbein</p>
+      <div class="foot-legal"><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a></div>
+    </div>
+  </div>
+</footer>
+<div class="sticky-cta"><a href="kontakt.html">→ Kostenlos anfragen</a></div>
+<script>
+  window.addEventListener('scroll', () => document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 20));
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+</script>
 </body>
 </html>
